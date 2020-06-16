@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="hinhchunhat"
+      width="200"
+      height="150"
+      style="border: 1px solid #000000;"
+    ></canvas
+    ><br />
+    <span id="dientich"></span><br />
+    <span id="chuvi"></span>
+    <script>
+      function Rectangle(dai, rong) {
+        this.dai = dai;
+        this.rong = rong;
+        this.dientich = function () {
+          dientich = this.dai * this.rong;
+          return dientich;
+        };
+        this.chuvi = function () {
+          chuvi = (this.dai + this.rong) * 2;
+          return chuvi;
+        };
+        this.vehinh = function () {
+          vehinh = document.getElementById("hinhchunhat").getContext("2d");
+          vehinh.fillStyle = "#FF0000";
+          taohinhchunhat = vehinh.fillRect(0, 0, this.dai, this.rong);
+          return taohinhchunhat;
+        };
+      }
+      let hinhchunhat1 = new Rectangle(150, 100);
+      document.getElementById("dientich").innerHTML =
+        "diện tích: " + hinhchunhat1.dientich();
+      document.getElementById("chuvi").innerHTML =
+        "chu vi: " + hinhchunhat1.chuvi();
+      hinhchunhat1.vehinh();
+    </script>
+  </body>
+</html>

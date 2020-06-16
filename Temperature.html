@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Temperature(nhietDoC) {
+        this.doC = nhietDoC;
+        this.doCSangF = function () {
+          if (this.doC < -273) {
+            return (doF = "quá giới hạn");
+          }
+          doF = this.doC * 1.8 + 32;
+          return doF;
+        };
+        this.doCSangKenvin = function () {
+          if (this.doC < -273) {
+            return (doK = "quá giới hạn");
+          }
+          doK = this.doC + 273.15;
+          return doK;
+        };
+      }
+      let nhietdo1 = new Temperature(25);
+      document.write(nhietdo1.doCSangF() + "<br>");
+      document.write(nhietdo1.doCSangKenvin());
+    </script>
+  </body>
+</html>
