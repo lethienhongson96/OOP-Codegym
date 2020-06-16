@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function circle(radi) {
+        this.radius = radi;
+        // this.color = "red";
+        this.getradius = function () {
+          return this.radius;
+        };
+        this.setradius = function (radi) {
+          this.radius = radi;
+        };
+        this.area = function () {
+          areacircle = Math.PI * this.radius * this.radius;
+          return areacircle;
+        };
+      }
+      let circle1 = new circle(2);
+      document.write("radius is: " + circle1.getradius() + "<br>");
+      document.write("area is: " + circle1.area() + "<br>");
+      circle1.setradius(6);
+      document.write("radius is: " + circle1.getradius() + "<br>");
+      document.write("area is: " + circle1.area());
+    </script>
+  </body>
+</html>
