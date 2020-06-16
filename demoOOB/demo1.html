@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function xe(type, color) {
+        this.type = type;
+        this.color = color;
+        this.getinfo = function () {
+          return this.type + " " + this.color;
+        };
+      }
+      let xedap = new xe("asama", "vàng");
+      alert(xedap.getinfo());
+    </script>
+  </body>
+</html>

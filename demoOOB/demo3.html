@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function daTe(day, month, year) {
+        //khai báo các thuộc tính của date;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        //tạo phương thức lấy dử liệu thông qua các thuộc tính
+        this.getday = function () {
+          return this.day;
+        };
+        this.getmonth = function () {
+          return this.month;
+        };
+        this.getyear = function () {
+          return this.year;
+        };
+        //tạo các phương thức cập nhật dử liệu
+        this.setday = function (day) {
+          this.day = day;
+        };
+        this.setmonth = function (month) {
+          this.month = month;
+        };
+        this.setyear = function (year) {
+          this.year = year;
+        };
+        //method thông báo
+        this.toStringDaTe = function () {
+          thongbao = this.day + "/" + this.month + "/" + this.year;
+          return thongbao;
+        };
+      }
+      let date1 = new daTe(2, 2, 2007);
+      //in ra trước khi sử dụng method set cập nhật
+      document.write(date1.toStringDaTe() + "<br>");
+      //sử dụng mehod set để thay đổi các giá trị
+      date1.setday(10);
+      date1.setmonth(10);
+      date1.setyear(2019);
+      document.write(date1.toStringDaTe());
+    </script>
+  </body>
+</html>
