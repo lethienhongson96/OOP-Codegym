@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Hai điện thoại tương tác với nhau</h2>
+
+    <table style="width: 100%;">
+      <tr>
+        <th id="namephone1">name phone</th>
+        <th id="namephone2">name phone</th>
+      </tr>
+      <tr>
+        <td>
+          soạn tin nhắn
+          <input
+            type="text"
+            id="textsoanphone1"
+            oninput="iphone.soantn(this.value)"
+          />
+        </td>
+        <td>
+          soạn tin nhắn
+          <input
+            type="text"
+            id="textsoanphone2"
+            oninput="bphone.soantn(this.value)"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" onclick="iphone.guiTinNhan(bphone)">
+            gửi tin nhắn>>
+          </button>
+        </td>
+        <td>
+          <button type="button" onclick="bphone.guiTinNhan(iphone)">
+            gửi tin nhắn>>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          hộp thư đến:
+          <span id="inboxiphone1"></span>
+        </td>
+        <td>
+          hộp thư đến:
+          <span id="inboxbphone2"></span>
+        </td>
+      </tr>
+    </table>
+    <script>
+      function Mobile(namephone, pin, screen, input) {
+        this.namephone = namephone;
+        this.Pin = pin;
+        this.tnDeGui = "";
+        this.arrInbox = [];
+        this.arrSended = [];
+        this.check = false;
+        this.turn = function () {
+          this.check = !this.check;
+          return this.check;
+        };
+        this.soantn = function (tinNhan) {
+          return (this.tnDeGui = tinNhan);
+        };
+        this.guiTinNhan = function (name) {
+          this.arrSended.push(this.tnDeGui);
+          name.arrInbox.push(this.tnDeGui);
+          xuatTnBphone();
+          xuatTnIphone();
+          return name.arrInbox;
+        };
+        this.xemtnDaGui = function () {
+          return this.arrSended;
+        };
+        this.inbox = function () {
+          return this.arrInbox;
+        };
+        this.nhanTinNhan = function (tinNhanGuiDen) {
+          this.arrInbox = tinNhanGuiDen;
+          screen.innerHTML = this.arrInbox
+        };
+      }
+      let iphone = new Mobile("Iphone", Math.floor(Math.random() * 100), document.getElementById("inboxiphone1"));
+      // iphone.soantn("xin chào");
+      // document.write(iphone.namephone + " " + iphone.Pin + "% PIN");
+      let bphone = new Mobile("Bphone", Math.floor(Math.random() * 100), , document.getElementById("inboxiphone2"));
+
+      // document.getElementById("namephone1").innerHTML = iphone.namephone;
+      // document.getElementById("namephone2").innerHTML = bphone.namephone;
+      // function xuatTnBphone() {
+      //   document.getElementById("inboxbphone").innerHTML = bphone.inbox();
+      // }
+      // function xuatTnIphone() {
+      //   document.getElementById("inboxiphone").innerHTML = iphone.inbox();
+      // }
+      // iphone.guiTinNhan(bphone);
+      // iphone.soantn("le thien");
+      // iphone.guiTinNhan(bphone);
+      // iphone.turn();
+    </script>
+  </body>
+</html>

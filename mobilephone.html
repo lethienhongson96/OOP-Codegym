@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="phone1">
+      <p id="screen1"></p>
+
+      <input type="text" id="input1" />
+      <input type="text" id="phoneNumber1" />
+      <button
+        id="btn1"
+        onclick="mobile1.sendMessage(input1.value, phoneNumber1.value)"
+      >
+        Send
+      </button>
+    </div>
+
+    <div id="phone2">
+      <p id="screen2"></p>
+
+      <input type="text" id="input2" />
+      <input type="text" id="phoneNumber2" />
+
+      <button
+        id="btn2"
+        onclick="mobile2.sendMessage(input2.value, phoneNumber2.value)"
+      >
+        Send
+      </button>
+    </div>
+
+    <div id="phone3">
+      <p id="screen3"></p>
+
+      <input type="text" id="input3" />
+      <input type="text" id="phoneNumber3" />
+
+      <button
+        id="btn3"
+        onclick="mobile2.sendMessage(input3.value, phoneNumber3.value)"
+      >
+        Send
+      </button>
+    </div>
+
+    <script>
+      function Mobile(phone, screen, input) {
+        this.phoneNumber = phone;
+        this.battery = 100;
+        this.screen = screen;
+        this.input = input;
+        this.inbox = [];
+
+        this.sendMessage = function (content, phoneNumber) {
+          console.log("send");
+          console.log(mobiles);
+          const mobile = mobiles.find(
+            (elem) => elem.phoneNumber == phoneNumber
+          );
+          console.log(mobile.phoneNumber);
+          mobile.receiveMessage(content);
+        };
+
+        this.receiveMessage = function (message) {
+          console.log("receive");
+          this.inbox.push(message);
+          console.log(this.inbox);
+          this.screen.innerHTML = message;
+        };
+
+        // this.drawPhone = function () {
+        //   const body = document.querySelector("body");
+
+        //   const mobile = document.createElement("div");
+
+        //   const screen = document.createElement("p");
+
+        //   const input = document.createElement("input");
+
+        //   const button = document.createElement("button");
+
+        //   button.addEventListener("click", function () {
+        //     this.sendMessage(input.value, this.endMobile);
+        //   });
+
+        //   mobile.appendChild(screen);
+        //   mobile.appendChild(input);
+        //   mobile.appendChild(button);
+
+        //   body.appendChild(mobile);
+        // };
+
+        // this.drawPhone();
+      }
+
+      const mobile1 = new Mobile(
+        "0101",
+        document.getElementById("screen1"),
+        document.getElementById("input1")
+      );
+
+      const mobile2 = new Mobile(
+        "0102",
+        document.getElementById("screen2"),
+        document.getElementById("input2")
+      );
+
+      const mobile3 = new Mobile(
+        "0103",
+        document.getElementById("screen3"),
+        document.getElementById("input3")
+      );
+
+      const mobiles = [mobile1, mobile2, mobile3];
+    </script>
+  </body>
+</html>
