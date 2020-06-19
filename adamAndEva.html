@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Apple() {
+        this.weight = 10;
+        this.status = true;
+        this.setWeight = function (Weight) {
+          this.weight = Weight;
+          this.checkStatus(this.weight);
+        };
+        this.lessweight = function () {
+          if (this.status) {
+            this.weight = this.weight - 1;
+          }
+        };
+        this.checkStatus = function (weight) {
+          if (weight <= 0) {
+            this.status = false;
+          } else {
+            this.status = true;
+          }
+        };
+      }
+      function human(ten, gioitinh, cannang) {
+        this.ten = ten;
+        this.gioitinh = gioitinh;
+        this.cannang = cannang;
+        this.eat = function (apple) {
+          if (apple.status) {
+            apple.lessweight();
+            this.cannang += 1;
+          } else {
+            return "hết táo";
+          }
+        };
+        this.say = function (mess) {
+          return mess;
+        };
+        this.setgender = function (gioitinh) {
+          this.gioitinh = gioitinh;
+        };
+        this.setWeight = function (cannang) {
+          this.cannang = cannang;
+        };
+      }
+      let apple1 = new Apple();
+      //   apple1.setWeight(0);
+      let adam = new human("adam", true, 60);
+      let eva = new human("eva", false, 45);
+      //   adam.eat(apple1);
+    </script>
+  </body>
+</html>
