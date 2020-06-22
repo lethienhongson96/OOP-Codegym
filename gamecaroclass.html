@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Banco {
+        constructor(side) {
+          this.side = side;
+          this.vitridadanh;
+        }
+        checkvitridadanh() {
+          return this.vitridadanh;
+        }
+        draw(side) {
+          //
+        }
+      }
+      class Quanco {
+        constructor(loaico) {
+          this.loaico = loaico;
+        }
+        getloaico(loaico) {
+          return (this.loaico = loaico);
+        }
+      }
+      class played {
+        constructor(nameplayed) {
+          this.nameplayed = nameplayed;
+        }
+        playdown(banco, quanco, vitridadanh) {
+          banco.vitridadanh = vitridadanh;
+          banco.checkvitridadanh(vitridadanh);
+          return (
+            this.nameplayed +
+            " đả đánh quân " +
+            quanco.loaico +
+            " ở vị trí " +
+            banco.vitridadanh
+          );
+        }
+        // checkplay(){
+
+        // }
+      }
+      let banco1 = new Banco(10);
+      let quancox = new Quanco("X");
+      let played1 = new played("sơn");
+      console.log(played1.playdown(banco1, quancox, 5));
+    </script>
+  </body>
+</html>

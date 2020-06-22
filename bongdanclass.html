@@ -18,27 +18,27 @@
         this.conNecToLamp = function (lamp) {
           if (this.status == true) {
             console.log("có chạy vào");
-            lamp.turnOn();
+            return lamp.turnOn();
           } else {
             console.log("không chạy");
-            lamp.turnOff();
+            return lamp.turnOff();
           }
         };
       }
       function Lamp() {
         this.turnOn = function () {
           console.log("có chạy vào turn on của đèn");
-          document.write("đèn đả bật");
+          return "đả bật đèn";
         };
         this.turnOff = function () {
           console.log("có chạy vào turnoff của đèn");
-          document.write("đèn đả tắt!!!");
+          return "đèn đả tắt!!!";
         };
       }
       let button1 = new Congtac();
       let lamp1 = new Lamp();
       button1.turnOn();
-      button1.conNecToLamp(lamp1);
+      alert(button1.conNecToLamp(lamp1));
       //   button1.turnOff();
       //   button1.conNecToLamp(lamp1);
     </script>
